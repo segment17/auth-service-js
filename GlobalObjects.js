@@ -20,9 +20,9 @@ class GlobalObjects {
 
     // Connect to Kubernetes if possible
     if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
-      this.client = new boxerservice_package.BoxerService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
+      this.client = new authservice_package.BoxerService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
     } else {
-      this.client = new boxerservice_package.BoxerService("0.0.0.0:50001", grpc.credentials.createInsecure());
+      this.client = new authservice_package.BoxerService("0.0.0.0:50001", grpc.credentials.createInsecure());
     }
   }
 
