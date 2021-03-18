@@ -4,9 +4,9 @@ const Mediator = require('./src/Mediator');
 // GRPC SETUP
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
-const PROTO_PATH = __dirname + '/proto/boxerservice.proto';
+const PROTO_PATH = __dirname + '/proto/authservice.proto';
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, { keepCase: true, longs: String, enums: String, defaults: true, oneofs: true });
-const boxerservice_package = grpc.loadPackageDefinition(packageDefinition).boxerservice_package;
+const authservice_package = grpc.loadPackageDefinition(packageDefinition).authservice_package;
 // GRPC SETUP
 
 class GlobalObjects {
