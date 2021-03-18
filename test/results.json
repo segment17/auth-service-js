@@ -1,0 +1,80 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "auth-service-component-features;give-token-upon-login-with-username-and-password-(1)-(uid:84bf9a0f-ac3e-4e5b-a5eb-025540999d79)",
+        "keyword": "Scenario Outline",
+        "line": 6,
+        "name": "Give token upon login with username and password (1) (uid:84bf9a0f-ac3e-4e5b-a5eb-025540999d79)",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "there is an admin such as \"A1_Scenario1_Variation1.admin\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "\"Login\" is called with \"A1_Scenario1_Variation1.request_body\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "response is as \"A1_Scenario1_Variation1.expected_response\"",
+            "result": {
+              "status": "undefined",
+              "duration": 0
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Component",
+            "line": 1
+          },
+          {
+            "name": "@Component",
+            "line": 1
+          },
+          {
+            "name": "@A1",
+            "line": 5
+          },
+          {
+            "name": "@A1_Scenario1",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "auth-service-component-features",
+    "line": 2,
+    "keyword": "Feature",
+    "name": "Auth Service Component Features",
+    "tags": [
+      {
+        "name": "@Component",
+        "line": 1
+      },
+      {
+        "name": "@Component",
+        "line": 1
+      }
+    ],
+    "uri": "features/cucumberstudio/Auth_Service_Component_Features.feature"
+  }
+]
