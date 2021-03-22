@@ -12,11 +12,13 @@ class MediatorScenarioTester extends DefaultScenarioTester {
     this.unitFunctionName = "";
   }
 
-  unitFunctionIsInvokedWithData(unitFunctionName, invocationDataSource) {
+  async unitFunctionIsInvokedWithData(unitFunctionName, invocationDataSource) {
     this.unitFunctionName = unitFunctionName;
     const data = TestFunctions.extractSpecifiedObjectData(invocationDataSource);
     if (unitFunctionName == "createToken") {
       globalObjects.result = globalObjects.mediator.createToken(data.username);
+    } else if (unitFunctionName == "validate") {
+      globalObjects.result = await globalObjects.mediator.validate(data.token);
     }
   }
 
@@ -30,6 +32,12 @@ class MediatorScenarioTester extends DefaultScenarioTester {
         assert(err == null);
         assert.strictEqual(decoded.username, expectedData.username);
       });
+    } 
+    else if (this.unitFunctionName == "validate") {
+      assert.strictEqual(returnedData, expectedData);
+    }
+    else {
+      assert(false);
     }
 
   }

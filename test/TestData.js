@@ -56,6 +56,13 @@ Unit_Mediator_Scenario1 = {
   }
 }
 
+Unit_Repository_Scenario2 = {
+  invocation_data: {
+    token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QtYWRtaW4ifQ.Ie8nanpMvN_aNxqEDDL6_2nvcDzbh0yBL2p_VrSY4r0"
+  },
+  expected_data: true
+}
+
 module.exports = {
   A1_Scenario1_Variation1,
   Unit_AdminRepository_Scenario1,
