@@ -32,6 +32,16 @@ class DefaultScenarioTester {
     });
   }
 
+  endpointIsCalledWithRequestBody(endpoint, requestBodySource) {
+    const requestBody = TestFunctions.extractSpecifiedObjectData(requestBodySource);
+    if (endpoint == "Login") {
+      globalObjects.client.Login(requestBody, function (err, res) {
+        globalObjects.result = res;
+      });
+    } else {
+      assert(false);
+    }
+  }
 
 }
 

@@ -18,9 +18,8 @@ Given('there is an admin such as {string}', async function (adminDataSource) {
   while (!globalObjects.done) { await TestFunctions.sleep(100); }
 });
 
-When('{string} is called with {string}', function (endpoint, requestBody) {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+When('{string} is called with {string}', function (endpoint, requestBodySource) {
+  globalObjects.scenarioTester.endpointIsCalledWithRequestBody(endpoint, requestBodySource);
 });
 
 Then('response is as {string}', function (expectedResponse) {
