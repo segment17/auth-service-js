@@ -2,6 +2,8 @@ const globalObjects = require('../..');
 const DefaultScenarioTester = require('./DefaultScenarioTester');
 const TestFunctions = require('../TestFunctions');
 const assert = require('assert');
+const jwt = require('jsonwebtoken');
+const K = require('../../src/Constants/K');
 
 class MediatorScenarioTester extends DefaultScenarioTester {
 
@@ -24,7 +26,9 @@ class MediatorScenarioTester extends DefaultScenarioTester {
     const returnedData = globalObjects.result;
 
     if (this.unitFunctionName == "createToken") {
-      assert.strictEqual(returnedData, expectedData);
+      jwt.verify(returnedData, K.jwtAppSecret, function(err, decoded) {
+        assert.strictEqual(decoded.username, expectedData.username);
+      });
     }
 
   }
