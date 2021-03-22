@@ -27,6 +27,7 @@ class MediatorScenarioTester extends DefaultScenarioTester {
 
     if (this.unitFunctionName == "createToken") {
       jwt.verify(returnedData, K.jwtAppSecret, function(err, decoded) {
+        assert(err == null);
         assert.strictEqual(decoded.username, expectedData.username);
       });
     }

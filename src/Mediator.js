@@ -1,4 +1,6 @@
 const md5 = require('md5');
+const jwt = require('jsonwebtoken');
+const K = require('./Constants/K');
 const AdminRepository = require('./Repository/AdminRepository');
 const MockAdminRepository = require('./Repository/Mock/MockAdminRepository');
 
@@ -16,7 +18,7 @@ class Mediator {
   }
 
   createToken(username) {
-    return '';
+    return jwt.sign({ username: "test-admin" }, K.jwtAppSecret);
   }
 
 
