@@ -10,11 +10,16 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, { keepCase: true, lon
 const authservice_package = grpc.loadPackageDefinition(packageDefinition).authservice_package;
 // GRPC SETUP
 
+async function bindMock(call, callback) {
+  await globalObjects.controller.mock();
+  callback(null, null);
+}
+
 function main() {
   console.log("Server running...");
   server = new grpc.Server();
   server.addService(authservice_package.AuthService.service, {
-
+    Mock: bindMock
   });
 
   if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {

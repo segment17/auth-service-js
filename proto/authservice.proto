@@ -22,7 +22,11 @@ message ValidateResponse {
   string message = 2;
 }
 
+message Empty {}
+
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse) {};
   rpc Validate(ValidateRequest) returns (ValidateResponse) {};
+
+  rpc Mock(Empty) returns (Empty) {};
 }
