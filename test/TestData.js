@@ -34,7 +34,7 @@ Unit_Mediator_Scenario1 = {
   invocation_data: {
     username: "test-admin"
   },
-  expected_data: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QtZGF0YSJ9.G_5Ao_RNM6btDvohXl67T95AUEjooN0mQZ0UdEMRmpQ"
+  expected_data: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QtYWRtaW4iLCJpYXQiOjE2MTY0MDk4NjZ9.r_pJKhNlTcU1M0HCTuuuWcwVLFJCqPEiMuTJkIV-Phc"
 }
 
 module.exports = {
