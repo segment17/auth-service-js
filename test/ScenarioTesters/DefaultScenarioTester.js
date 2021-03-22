@@ -50,10 +50,10 @@ class DefaultScenarioTester {
     await TestFunctions.waitUntilResult();
     const response = globalObjects.result;
     
-    assert.strictEqual(response.code == expectedResponse.code);
-    assert.strictEqual(response.message == expectedResponse.message);
+    assert.strictEqual(response.code, expectedResponse.code);
+    assert.strictEqual(response.message, expectedResponse.message);
     if (this.endpoint == "Login") {
-      assert.strictEqual(response.token == expectedResponse.token);
+      assert.strictEqual(response.token, expectedResponse.token);
     }
   }
 
