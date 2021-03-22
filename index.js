@@ -20,6 +20,11 @@ async function bindLogin(call, callback) {
   callback(null, r);
 }
 
+async function bindValidate(call, callback) {
+  let r = await globalObjects.controller.guardValidate(call.request);
+  callback(null, r);
+}
+
 //Setup
 async function bindSetupAddAdmin(call, callback) {
   globalObjects.controller.mediator.adminRepository.setupAddAdmin(call.request);
@@ -32,6 +37,8 @@ function main() {
   server.addService(authservice_package.AuthService.service, {
     Mock: bindMock,
     Login: bindLogin,
+    Validate: bindValidate,
+
     SetupAddAdmin: bindSetupAddAdmin
   });
 

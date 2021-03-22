@@ -29,6 +29,23 @@ class Controller {
 
   }
 
+  async guardValidate(request) {
+    // TODO data validation
+    let isAuthorized = await this.mediator.validate(request.token);
+
+    if (isAuthorized) {
+      return {
+        code: 200,
+        message: 'success'
+      }
+    } else {
+      return {
+        code: 403,
+        message: 'forbidden'
+      }
+    }
+  }
+
   // Mock
   mock() {
     // Assign to mediator to mock everything it has.
