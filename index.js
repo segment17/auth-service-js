@@ -15,11 +15,17 @@ async function bindMock(call, callback) {
   callback(null, null);
 }
 
+async function bindLogin(call, callback) {
+  let r = await globalObjects.controller.guardLogin(call.request);
+  callback(null, r);
+}
+
 function main() {
   console.log("Server running...");
   server = new grpc.Server();
   server.addService(authservice_package.AuthService.service, {
-    Mock: bindMock
+    Mock: bindMock,
+    Login: bindLogin
   });
 
   if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
