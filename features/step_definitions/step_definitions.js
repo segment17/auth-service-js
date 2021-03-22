@@ -22,7 +22,6 @@ When('{string} is called with {string}', function (endpoint, requestBodySource) 
   globalObjects.scenarioTester.endpointIsCalledWithRequestBody(endpoint, requestBodySource);
 });
 
-Then('response is as {string}', function (expectedResponse) {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+Then('response is as {string}', async function (expectedResponse) {
+  await globalObjects.scenarioTester.responseIsAs(expectedResponse);
 });

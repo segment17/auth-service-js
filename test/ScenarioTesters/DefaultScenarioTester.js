@@ -7,6 +7,7 @@ class DefaultScenarioTester {
 
   constructor(scenario) {
     this.scenario = scenario;
+    this.endpoint = "";
   }
 
   // Special Before Scenario Function
@@ -34,12 +35,25 @@ class DefaultScenarioTester {
 
   endpointIsCalledWithRequestBody(endpoint, requestBodySource) {
     const requestBody = TestFunctions.extractSpecifiedObjectData(requestBodySource);
+    this.endpoint = endpoint;
     if (endpoint == "Login") {
       globalObjects.client.Login(requestBody, function (err, res) {
         globalObjects.result = res;
       });
     } else {
       assert(false);
+    }
+  }
+
+  async responseIsAs(expectedResponseDataSource) {
+    const expectedResponse = TestFunctions.extractSpecifiedObjectData(expectedResponseDataSource);
+    await TestFunctions.waitUntilResult();
+    const response = globalObjects.result;
+    
+    assert.strictEqual(response.code == expectedResponse.code);
+    assert.strictEqual(response.message == expectedResponse.message);
+    if (this.endpoint == "Login") {
+      assert.strictEqual(response.token == expectedResponse.token);
     }
   }
 
