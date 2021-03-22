@@ -13,7 +13,7 @@ const authservice_package = grpc.loadPackageDefinition(packageDefinition).authse
 function main() {
   console.log("Server running...");
   server = new grpc.Server();
-  server.addService(authservice_package.BoxerService.service, {
+  server.addService(authservice_package.AuthService.service, {
 
   });
 
