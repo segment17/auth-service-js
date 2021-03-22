@@ -1,5 +1,5 @@
 const DefaultScenarioTester = require('./DefaultScenarioTester');
-const AdminRepositoryScenarioTester = require('./Repository/UserRepositoryScenarioTester');
+const AdminRepositoryScenarioTester = require('./Repository/AdminRepositoryScenarioTester');
 const TestFunctions = require('../TestFunctions');
 
 class ScenarioTesterFactory {

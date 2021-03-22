@@ -1,5 +1,7 @@
 const Controller = require('./src/Controller');
 const Mediator = require('./src/Mediator');
+const AdminRepository = require('./src/Repository/AdminRepository');
+const MockAdminRepository = require('./src/Repository/Mock/MockAdminRepository');
 
 // GRPC SETUP
 const grpc = require('grpc');
@@ -16,6 +18,7 @@ class GlobalObjects {
     this.result = null; // Result object that will be filled during tests.
     this.controller = new Controller();
     this.mediator = new Mediator();
+    this.adminRepository = new AdminRepository();
 
 
     // Connect to Kubernetes if possible
@@ -29,6 +32,7 @@ class GlobalObjects {
   // Mock everything...
   mock() {
     this.mediator.mock();
+    this.adminRepository = new MockAdminRepository();
   }
 
   resetResult() {
