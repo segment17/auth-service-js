@@ -22,7 +22,7 @@ Unit_AdminRepository_Scenario1 = {
     username: "test-admin",
     password_hash: "13019e4c76dbb79db5c2562ad0572f74"
   },
-  admin_username: "test-admin",
+  invocation_data: {username: "test-admin"},
   expected_data: {
     username: "test-admin",
     password_hash: "13019e4c76dbb79db5c2562ad0572f74"

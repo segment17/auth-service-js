@@ -25,3 +25,11 @@ When('{string} is called with {string}', function (endpoint, requestBodySource) 
 Then('response is as {string}', async function (expectedResponse) {
   await globalObjects.scenarioTester.responseIsAs(expectedResponse);
 });
+
+When('{string} is invoked with {string}', function (unitFunctionName, invocationDataSource) {
+  globalObjects.scenarioTester.unitFunctionIsInvokedWithData(unitFunctionName, invocationDataSource);
+});
+
+Then('returned data is as {string}', async function (expectedDataSource) {
+  await globalObjects.scenarioTester.returnedDataIsAs(expectedDataSource);
+});
