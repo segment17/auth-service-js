@@ -12,6 +12,12 @@ class MediatorScenarioTester extends DefaultScenarioTester {
     this.unitFunctionName = "";
   }
 
+  async thereIsAnAdminSuchAs(dataSource) {
+    const specifiedAdmin = TestFunctions.extractSpecifiedObjectData(dataSource);
+    globalObjects.mediator.adminRepository.setupAddAdmin(specifiedAdmin);
+    globalObjects.done = true;
+  }
+
   async unitFunctionIsInvokedWithData(unitFunctionName, invocationDataSource) {
     this.unitFunctionName = unitFunctionName;
     const data = TestFunctions.extractSpecifiedObjectData(invocationDataSource);

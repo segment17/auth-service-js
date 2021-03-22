@@ -57,6 +57,10 @@ Unit_Mediator_Scenario1 = {
 }
 
 Unit_Repository_Scenario2 = {
+  admin: {
+    username: "test-admin",
+    password_hash: "13019e4c76dbb79db5c2562ad0572f74"
+  },
   invocation_data: {
     token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QtYWRtaW4ifQ.Ie8nanpMvN_aNxqEDDL6_2nvcDzbh0yBL2p_VrSY4r0"
   },
