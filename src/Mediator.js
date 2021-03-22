@@ -18,7 +18,7 @@ class Mediator {
   }
 
   createToken(username) {
-    return jwt.sign({ username: "test-admin" }, K.jwtAppSecret);
+    return jwt.sign({ username: username }, K.jwtAppSecret);
   }
 
 
