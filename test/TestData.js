@@ -12,7 +12,9 @@ A1_Scenario1_Variation1 = {
   expected_response: {
     code: 200,
     message: 'success',
-    token: 'expected_jwt_token' //TODO
+    token_decoded: {
+      username: "test-admin"
+    }
   }
 }
 

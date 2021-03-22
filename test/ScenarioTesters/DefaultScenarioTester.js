@@ -2,6 +2,8 @@ const { Given, When, Then, Before } = require('@cucumber/cucumber');
 const TestFunctions = require('../TestFunctions');
 const globalObjects = require('../../index');
 const assert = require('assert');
+const K = require('../../src/Constants/K');
+const jwt = require('jsonwebtoken');
 
 class DefaultScenarioTester {
 
@@ -52,7 +54,10 @@ class DefaultScenarioTester {
     assert.strictEqual(response.code, expectedResponse.code);
     assert.strictEqual(response.message, expectedResponse.message);
     if (this.endpoint == "Login") {
-      assert.strictEqual(response.token, expectedResponse.token);
+      jwt.verify(response.token, K.jwtAppSecret, function(err, decoded) {
+        assert(err == null);
+        assert.strictEqual(decoded.username, expectedResponse.token_decoded.username);
+      });
     }
   }
 
