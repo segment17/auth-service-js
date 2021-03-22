@@ -7,11 +7,11 @@ class Controller {
   }
 
   // Endpoint guards: guard[endpoint name]
-  guardLogin(request) {
+  async guardLogin(request) {
     //TODO Validation
 
-    let isSuccessful = this.mediator.login(request.username, request.password);
-
+    let isSuccessful = await this.mediator.login(request.username, request.password);
+    
     if (isSuccessful) {
       let token = this.mediator.createToken(request.username);
       return {
@@ -34,6 +34,8 @@ class Controller {
     // Assign to mediator to mock everything it has.
     this.mediator.mock();
   }
+
+  
 
 }
 

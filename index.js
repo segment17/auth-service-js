@@ -20,12 +20,19 @@ async function bindLogin(call, callback) {
   callback(null, r);
 }
 
+//Setup
+async function bindSetupAddAdmin(call, callback) {
+  globalObjects.controller.mediator.adminRepository.setupAddAdmin(call.request);
+  callback(null, {code: 200})
+}
+
 function main() {
   console.log("Server running...");
   server = new grpc.Server();
   server.addService(authservice_package.AuthService.service, {
     Mock: bindMock,
-    Login: bindLogin
+    Login: bindLogin,
+    SetupAddAdmin: bindSetupAddAdmin
   });
 
   if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
