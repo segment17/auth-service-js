@@ -29,7 +29,7 @@ class DefaultScenarioTester {
 
   async thereIsAnAdminSuchAs(dataSource) {
     const specifiedAdmin = TestFunctions.extractSpecifiedObjectData(dataSource);
-    await globalObjects.client.SetupAddAdmin({username: specifiedAdmin.username, password_hash: specifiedAdmin.password_hash}, function (err, res) {
+    await globalObjects.client.SetupAddAdmin({ username: specifiedAdmin.username, password_hash: specifiedAdmin.password_hash }, function (err, res) {
       globalObjects.done = true;
     });
   }
@@ -41,7 +41,13 @@ class DefaultScenarioTester {
       globalObjects.client.Login(requestBody, function (err, res) {
         globalObjects.result = res;
       });
-    } else {
+    }
+    else if (endpoint == "Validate") {
+      globalObjects.client.Validate(requestBody, function (err, res) {
+        globalObjects.result = res;
+      });
+    }
+    else {
       assert(false);
     }
   }
@@ -50,11 +56,11 @@ class DefaultScenarioTester {
     const expectedResponse = TestFunctions.extractSpecifiedObjectData(expectedResponseDataSource);
     await TestFunctions.waitUntilResult();
     const response = globalObjects.result;
-    
+
     assert.strictEqual(response.code, expectedResponse.code);
     assert.strictEqual(response.message, expectedResponse.message);
     if (this.endpoint == "Login") {
-      jwt.verify(response.token, K.jwtAppSecret, function(err, decoded) {
+      jwt.verify(response.token, K.jwtAppSecret, function (err, decoded) {
         assert(err == null);
         assert.strictEqual(decoded.username, expectedResponse.token_decoded.username);
       });
