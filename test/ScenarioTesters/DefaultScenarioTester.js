@@ -24,6 +24,14 @@ class DefaultScenarioTester {
     }
   }
 
+  async thereIsAnAdminSuchAs(dataSource) {
+    const specifiedAdmin = TestFunctions.extractSpecifiedObjectData(dataSource);
+    // globalObjects.controller.mediator.boxerRepository.setupAddBoxer(specifiedBoxer);
+    await globalObjects.client.SetupAddAdmin({username: specifiedAdmin.username, password: specifiedAdmin.password}, function (err, res) {
+      globalObjects.done = true;
+    });
+  }
+
 
 }
 

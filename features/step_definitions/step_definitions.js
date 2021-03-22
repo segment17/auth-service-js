@@ -12,9 +12,10 @@ Before(async function (scenario) {
   }
 });
 
-Given('there is an admin such as {string}', function (adminDataSource) {
-  // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+Given('there is an admin such as {string}', async function (adminDataSource) {
+  globalObjects.done = false;
+  await globalObjects.scenarioTester.thereIsAnAdminSuchAs(adminDataSource);
+  while (!globalObjects.done) { await TestFunctions.sleep(100); }
 });
 
 When('{string} is called with {string}', function (endpoint, requestBody) {
