@@ -29,7 +29,16 @@ Unit_AdminRepository_Scenario1 = {
   }
 }
 
+// Unit - Mediator
+Unit_Mediator_Scenario1 = {
+  invocation_data: {
+    username: "test-admin"
+  },
+  expected_data: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QtZGF0YSJ9.G_5Ao_RNM6btDvohXl67T95AUEjooN0mQZ0UdEMRmpQ"
+}
+
 module.exports = {
   A1_Scenario1_Variation1,
   Unit_AdminRepository_Scenario1,
+  Unit_Mediator_Scenario1,
 }
