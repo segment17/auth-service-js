@@ -68,4 +68,5 @@ module.exports = {
   Unit_AdminRepository_Scenario1,
   Unit_Mediator_Scenario1,
   A0_Scenario1_Variation1,
+  Unit_Repository_Scenario2,
 }
