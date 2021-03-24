@@ -60,10 +60,15 @@ class DefaultScenarioTester {
     assert.strictEqual(response.code, expectedResponse.code);
     assert.strictEqual(response.message, expectedResponse.message);
     if (this.endpoint == "Login") {
-      jwt.verify(response.token, K.jwtAppSecret, function (err, decoded) {
-        assert(err == null);
-        assert.strictEqual(decoded.username, expectedResponse.token_decoded.username);
-      });
+      if (TestFunctions.isScenarioFaulty(this.scenario)) {
+        assert.strictEqual(response.token, expectedResponse.token);
+      } else {
+        jwt.verify(response.token, K.jwtAppSecret, function (err, decoded) {
+          assert(err == null);
+          assert.strictEqual(decoded.username, expectedResponse.token_decoded.username);
+        });
+      }
+
     }
   }
 

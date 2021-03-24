@@ -36,6 +36,10 @@ function isScenarioE2E(scenario) {
   return extractTags(scenario).includes('@E2E');
 }
 
+function isScenarioFaulty(scenario) {
+  return extractTags(scenario).includes('@Faulty');
+}
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -46,4 +50,13 @@ async function waitUntilResult() {
   }
 }
 
-module.exports = { extractSpecifiedObjectData, isScenarioUnit, isScenarioIntegration, isScenarioComponent, isScenarioE2E, waitUntilResult, sleep}
+module.exports = { 
+  extractSpecifiedObjectData,
+  isScenarioFaulty,
+  isScenarioUnit,
+  isScenarioIntegration,
+  isScenarioComponent,
+  isScenarioE2E,
+  waitUntilResult,
+  sleep,
+}
