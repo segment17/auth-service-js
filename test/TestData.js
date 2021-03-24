@@ -80,6 +80,24 @@ Unit_AdminRepository_Scenario1 = {
   }
 }
 
+Unit_AdminRepository_Scenario1_Faulty_Variation1 = {
+  admin: {
+    username: "test-admin",
+    password_hash: "13019e4c76dbb79db5c2562ad0572f74"
+  },
+  invocation_data: {username: "non-existent-admin-username"},
+  expected_data: null
+}
+
+Unit_AdminRepository_Scenario1_Faulty_Variation2 = {
+  admin: {
+    username: "test-admin",
+    password_hash: "13019e4c76dbb79db5c2562ad0572f74"
+  },
+  invocation_data: {username: ""},
+  expected_data: null
+}
+
 // Unit - Mediator
 Unit_Mediator_Scenario1 = {
   invocation_data: {
@@ -110,4 +128,6 @@ module.exports = {
   Unit_Mediator_Scenario1,
   A0_Scenario1_Variation1,
   Unit_Repository_Scenario2,
+  Unit_AdminRepository_Scenario1_Faulty_Variation1,
+  Unit_AdminRepository_Scenario1_Faulty_Variation2,
 }

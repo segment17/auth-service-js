@@ -35,6 +35,9 @@ class AdminRepositoryScenarioTester extends DefaultScenarioTester {
       assert.strictEqual(returnedData.username, expectedData.username);
       assert.strictEqual(returnedData.password_hash, expectedData.password_hash);
     }
+    else {
+      assert(false);
+    }
   }
 }
 
