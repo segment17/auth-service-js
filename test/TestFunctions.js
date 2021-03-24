@@ -41,7 +41,7 @@ function sleep(ms) {
 }
 
 async function waitUntilResult() {
-  while (globalObjects.result == null) {
+  while (globalObjects.result == globalObjects.unreturnableContentForResult) {
     await sleep(100);
   }
 }

@@ -11,11 +11,14 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, { keepCase: true, lon
 const authservice_package = grpc.loadPackageDefinition(packageDefinition).authservice_package;
 // GRPC SETUP
 
+
+
 class GlobalObjects {
 
   constructor() {
+    this.unreturnableContentForResult = "globalObjectsUnreturnableContent";
     this.done = false;
-    this.result = null; // Result object that will be filled during tests.
+    this.result = this.unreturnableContentForResult; // Result object that will be filled during tests.
     this.controller = new Controller();
     this.mediator = new Mediator();
     this.adminRepository = new AdminRepository();
@@ -36,7 +39,7 @@ class GlobalObjects {
   }
 
   resetResult() {
-    this.result = null;
+    this.result = this.unreturnableContentForResult;
   }
 
   setScenario(scenario) {
@@ -48,7 +51,7 @@ class GlobalObjects {
   }
 
   reset() {
-    this.result = null; // Result object that will be filled during tests.
+    this.result = this.unreturnableContentForResult; // Result object that will be filled during tests.
     this.controller = new Controller();
     this.mediator = new Mediator();
 
