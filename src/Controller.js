@@ -22,7 +22,7 @@ class Controller {
     } else {
       return {
         code: 403,
-        message: 'Username or password is incorrect!',
+        message: 'Incorrect login!',
         token: ''
       }
     }
