@@ -18,6 +18,39 @@ A1_Scenario1_Variation1 = {
   }
 }
 
+A1_Scenario1_Faulty_Variation1 = {
+  admin:  {
+    username: "test-admin",
+    password_hash: "13019e4c76dbb79db5c2562ad0572f74"
+  },
+  request_body: {
+    username: "test-admin",
+    password: "randompassword"
+  },
+  expected_response: {
+    code: 403,
+    message: 'Incorrect login!',
+    token: ''
+  }
+}
+
+
+A1_Scenario1_Faulty_Variation2 = {
+  admin:  {
+    username: "test-admin",
+    password_hash: "13019e4c76dbb79db5c2562ad0572f74"
+  },
+  request_body: {
+    username: "random-admin-username",
+    password: "test-password-1234"
+  },
+  expected_response: {
+    code: 403,
+    message: 'Incorrect login!',
+    token: ''
+  }
+}
+
 A0_Scenario1_Variation1 = {
   admin:  {
     username: "test-admin",
@@ -31,6 +64,8 @@ A0_Scenario1_Variation1 = {
     message: 'success'
   }
 }
+
+
 
 // Unit - AdminRepository
 Unit_AdminRepository_Scenario1 = {
@@ -69,6 +104,8 @@ Unit_Repository_Scenario2 = {
 
 module.exports = {
   A1_Scenario1_Variation1,
+  A1_Scenario1_Faulty_Variation1,
+  A1_Scenario1_Faulty_Variation2,
   Unit_AdminRepository_Scenario1,
   Unit_Mediator_Scenario1,
   A0_Scenario1_Variation1,
