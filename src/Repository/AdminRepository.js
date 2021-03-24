@@ -12,7 +12,9 @@ class AdminRepository {
   }
 
   extractAdminFromQueryResult(queryResult) {
-    // Do checks
+    if (queryResult.length == 0) {
+      return null;
+    }
     return queryResult[0];
   }
 
