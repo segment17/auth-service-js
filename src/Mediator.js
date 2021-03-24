@@ -15,7 +15,11 @@ class Mediator {
   // Endpoints
   async login(username, password) {
     let existingAdmin = await this.adminRepository.getAdminWithUsername(username);
-    // Check if admin exists.
+    
+    if (existingAdmin == null) {
+      return false;
+    }
+
     return md5(password) == existingAdmin.password_hash;
   }
 
