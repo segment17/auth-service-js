@@ -27,7 +27,7 @@ Feature: Auth Service Component Features
       | A1_Scenario1_Faulty_Variation2.admin | Login    | A1_Scenario1_Faulty_Variation2.request_body | A1_Scenario1_Faulty_Variation2.expected_response |
 
   @A0 @A0_Scenario1
-  Scenario Outline: Give token upon login with username and password
+  Scenario Outline: Verify token
     #Set up mock repository or real database
     Given there is an admin such as "<admin>"
     When "<endpoint>" is called with "<request_body>"
