@@ -22,9 +22,12 @@ function isScenarioUnit(scenario, layer) {
   return tags.includes('@Unit') && tags.includes('@' + layer);
 }
 
-function isScenarioIntegration(scenario, layer) {
+function isScenarioIntegration(scenario, layer = null) {
   // layer can be "Mediator", "Gateway", "Repository" or one of the domain object tags
   const tags = extractTags(scenario);
+  if (layer == null) {
+    return tags.includes('@Integration');
+  }
   return tags.includes('@Integration') && tags.includes('@' + layer);
 }
 
