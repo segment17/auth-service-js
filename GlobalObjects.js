@@ -54,6 +54,7 @@ class GlobalObjects {
     this.result = this.unreturnableContentForResult; // Result object that will be filled during tests.
     this.controller = new Controller();
     this.mediator = new Mediator();
+    this.adminRepository = new AdminRepository();
 
     // Connect to Kubernetes if possible
     if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
