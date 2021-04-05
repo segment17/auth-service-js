@@ -8,7 +8,7 @@ class AdminRepository {
 
   async runQueryForGetAdminWithUsername(username) {
     // Real read query to database
-    return [];
+    return null;
   }
 
   extractAdminFromQueryResult(queryResult) {
