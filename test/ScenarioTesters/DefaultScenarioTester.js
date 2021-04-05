@@ -18,6 +18,7 @@ class DefaultScenarioTester {
     globalObjects.setScenario(this.scenario);
     if (!TestFunctions.isScenarioE2E(this.scenario) && !TestFunctions.isScenarioIntegration(this.scenario)) {
       // If it's not E2E or Integration, it means everything is mocked.
+      console.log("GONNA MOCK");
       globalObjects.mock();
       globalObjects.client.Mock({}, (err, res) => {
         globalObjects.done = true;
