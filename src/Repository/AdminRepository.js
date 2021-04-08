@@ -17,7 +17,6 @@ class AdminRepository {
   }
 
   async runQueryForGetAdminWithUsername(username) {
-    console.log(this.tableName);
     return new Promise((resolve, reject) => {
       connection.query(`SELECT * FROM ${this.tableName} WHERE username = '${username}';`, (error, result) => {
         if (error) {
