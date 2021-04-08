@@ -58,7 +58,7 @@ spec:
           - name: auth-mysql-persistent-storage
             mountPath: /var/lib/mysql
       volumes:
-        - name: mysql-persistent-storage
+        - name: auth-mysql-persistent-storage
           persistentVolumeClaim:
             claimName: auth-mysql-claim
 ---
