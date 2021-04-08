@@ -13,7 +13,7 @@ CREATE TABLE admins (
 */
 
 var connection = mysql.createConnection({
-  host: process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST,
+  host: process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST != undefined ? process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST : "localhost",
   user: "root",
   password: "root",
   database: "authservice"
