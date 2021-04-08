@@ -1,3 +1,5 @@
+const { connection } = require('./DB');
+
 class AdminRepository {
 
   async getAdminWithUsername(username) {
@@ -7,8 +9,15 @@ class AdminRepository {
   }
 
   async runQueryForGetAdminWithUsername(username) {
-    // Real read query to database
-    return null;
+    return new Promise((resolve, reject) => {
+      connection.query(`SELECT * FROM admins WHERE username = '${username}';`, (error, result) => {
+        if (error) {
+          console.log(error);
+          resolve(null);
+        }
+        resolve(result);
+      });
+    });
   }
 
   extractAdminFromQueryResult(queryResult) {
@@ -20,7 +29,18 @@ class AdminRepository {
 
   // Setup
   async setupAddAdmin(admin) {
-    // Real write query to database to add fake admin
+    console.log(admin);
+    return new Promise((resolve, reject) => {
+      connection.query(`INSERT INTO admins (username, password_hash) VALUES ('${admin.username}', '${admin.password_hash}');`, (error, result) => {
+        if (error) {
+          console.log(error);
+          resolve(null);
+        }
+        console.log("RESULT");
+        console.log(result);
+        resolve(result);
+      });
+    });
   }
 
 }
