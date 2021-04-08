@@ -38,6 +38,17 @@ class GlobalObjects {
     this.adminRepository = new MockAdminRepository();
   }
 
+  enterIntegratedTestingEnvironment() {
+    this.mediator.enterIntegratedTestingEnvironment();
+    this.adminRepository.enterIntegratedTestingEnvironment();
+  }
+
+  cleanUp() {
+    //TODO: Client cleanup
+    this.mediator.cleanUp();
+    this.adminRepository.cleanUp();
+  }
+
   resetResult() {
     this.result = this.unreturnableContentForResult;
   }

@@ -29,6 +29,7 @@ service AuthService {
   rpc Validate(ValidateRequest) returns (ValidateResponse) {};
 
   rpc Mock(Empty) returns (Empty) {};
+  rpc EnterIntegratedTestingEnvironment(Empty) returns (Empty) {};
   rpc SetupAddAdmin(SetupAddAdminRequest) returns (Empty) {};
 }
 

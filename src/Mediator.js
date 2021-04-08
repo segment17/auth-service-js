@@ -44,7 +44,15 @@ class Mediator {
   mock() {
     this.adminRepository = new MockAdminRepository();
   }
+  
+  enterIntegratedTestingEnvironment() {
+    this.adminRepository.enterIntegratedTestingEnvironment();
+  }
 
+  cleanUp() {
+    this.adminRepository.cleanUp();
+  }
+  
 }
 
 module.exports = Mediator;

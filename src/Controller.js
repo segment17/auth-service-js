@@ -52,6 +52,10 @@ class Controller {
     this.mediator.mock();
   }
 
+  enterIntegratedTestingEnvironment() {
+    this.mediator.enterIntegratedTestingEnvironment();
+  }
+
   
 
 }

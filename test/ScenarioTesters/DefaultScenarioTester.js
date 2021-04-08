@@ -24,7 +24,10 @@ class DefaultScenarioTester {
         globalObjects.done = true;
       });
     } else {
-      globalObjects.done = true;
+      globalObjects.enterIntegratedTestingEnvironment();
+      globalObjects.client.EnterIntegratedTestingEnvironment({}, (err, res) => {
+        globalObjects.done = true;
+      });
     }
   }
 

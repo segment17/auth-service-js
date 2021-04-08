@@ -15,6 +15,11 @@ async function bindMock(call, callback) {
   callback(null, null);
 }
 
+async function bindEnterIntegratedTestingEnvironment(call, callback) {
+  await globalObjects.controller.enterIntegratedTestingEnvironment();
+  callback(null, null);
+}
+
 async function bindLogin(call, callback) {
   let r = await globalObjects.controller.guardLogin(call.request);
   callback(null, r);
@@ -36,9 +41,9 @@ function main() {
   server = new grpc.Server();
   server.addService(authservice_package.AuthService.service, {
     Mock: bindMock,
+    EnterIntegratedTestingEnvironment: bindEnterIntegratedTestingEnvironment,
     Login: bindLogin,
     Validate: bindValidate,
-
     SetupAddAdmin: bindSetupAddAdmin
   });
 

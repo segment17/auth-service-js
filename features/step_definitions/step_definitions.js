@@ -1,4 +1,4 @@
-const { Given, When, Then, Before } = require('@cucumber/cucumber');
+const { Given, When, Then, Before, After } = require('@cucumber/cucumber');
 const TestFunctions = require('../../test/TestFunctions');
 const ScenarioTesterFactory = require('../../test/ScenarioTesters/ScenarioTesterFactory');
 const globalObjects = require('../../index');
@@ -10,6 +10,10 @@ Before(async function (scenario) {
   while (!globalObjects.done) {
     await TestFunctions.sleep(100);
   }
+});
+
+After(async function (scenario) {
+  globalObjects.cleanUp();
 });
 
 Given('there is an admin such as {string}', async function (adminDataSource) {
