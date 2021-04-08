@@ -12,12 +12,14 @@ CREATE TABLE admins (
 );
 */
 
-var connection = mysql.createConnection({
+const connectionSetup = {
   host: process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST != undefined ? process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST : "localhost",
   user: "root",
   password: "root",
   database: "authservice"
-});
+};
+
+var connection = mysql.createConnection(connectionSetup);
 
 connection.connect(function (err) {
   if (err) throw err;
