@@ -32,7 +32,12 @@ class AdminRepositoryScenarioTester extends DefaultScenarioTester {
     const returnedData = globalObjects.result;
 
     if (this.unitFunctionName == "getAdminWithUsername") {
-      assert.strictEqual(JSON.stringify(returnedData), JSON.stringify(expectedData));
+      if (expectedData == null) {
+        assert(returnedData == null);
+      } else {
+        assert.strictEqual(returnedData.username, expectedData.username);
+        assert.strictEqual(returnedData.password_hash, expectedData.password_hash);
+      }
     }
     else {
       assert(false);
