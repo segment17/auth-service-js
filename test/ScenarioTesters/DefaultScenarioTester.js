@@ -60,6 +60,7 @@ class DefaultScenarioTester {
     const expectedResponse = TestFunctions.extractSpecifiedObjectData(expectedResponseDataSource);
     await TestFunctions.waitUntilResult();
     const response = globalObjects.result;
+    console.log(response);
 
     assert.strictEqual(response.code, expectedResponse.code);
     assert.strictEqual(response.message, expectedResponse.message);
