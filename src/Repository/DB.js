@@ -21,7 +21,8 @@ CREATE TABLE test_admins (
 const connectionSetup = {
   host: process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST != undefined ? process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST : "localhost",
   user: "root",
-  password: "root"
+  password: "root",
+  database: "authservice"
 };
 console.log(connectionSetup);
 var connection = mysql.createConnection(connectionSetup);
@@ -31,15 +32,6 @@ connection.connect(function (err) {
     console.log(err);
   } else {
     console.log("Connected!");
-    connection.query("SHOW DATABASES;", function (err, result, fields) {
-      if (err)
-        console.log(err);
-      console.log(result);
-      // connection.query("USE authservice;", function (err, result, fields) {
-      //   if (err)
-      //     console.log(err);
-      // });
-    });
   }
 });
 

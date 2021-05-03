@@ -3,11 +3,11 @@ const { connection } = require('./DB');
 class AdminRepository {
 
   constructor() {
-    this.tableName = 'authservice.admins';
+    this.tableName = 'admins';
   }
 
   enterIntegratedTestingEnvironment() {
-    this.tableName = 'authservice.test_admins';
+    this.tableName = 'test_admins';
   }
 
   async getAdminWithUsername(username) {
@@ -38,7 +38,7 @@ class AdminRepository {
   // Setup
   async setupAddAdmin(admin) {
     return new Promise((resolve, reject) => {
-      connection.query(`INSERT INTO authservice.test_admins (username, password_hash) VALUES ('${admin.username}', '${admin.password_hash}');`, (error, result) => {
+      connection.query(`INSERT INTO test_admins (username, password_hash) VALUES ('${admin.username}', '${admin.password_hash}');`, (error, result) => {
         if (error) {
           console.log(error);
           resolve(null);
@@ -51,7 +51,7 @@ class AdminRepository {
   //During testing only
   async cleanUp() {
     return new Promise((resolve, reject) => {
-      connection.query(`DELETE FROM authservice.test_admins;`, (error, result) => {
+      connection.query(`DELETE FROM test_admins;`, (error, result) => {
         if (error) {
           console.log(error);
           resolve(null);
