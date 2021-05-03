@@ -26,6 +26,7 @@ async function bindLogin(call, callback) {
 }
 
 async function bindValidate(call, callback) {
+  console.log("Validate request received.");
   let r = await globalObjects.controller.guardValidate(call.request);
   callback(null, r);
 }
@@ -53,6 +54,8 @@ function main() {
     server.bind("localhost:50001", grpc.ServerCredentials.createInsecure());
   }
   server.start();
+
+
 }
 
 main();

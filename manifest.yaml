@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: auth-service-deployment
+  labels:
+    app: auth-service
 spec:
   replicas: 1
   selector:
@@ -15,14 +17,33 @@ spec:
       containers:
       - name: auth-service
         imagePullPolicy: Never
-        image: segment17/authservice
+        image: segment17hub/authservice
         ports:
         - containerPort: 50051
+        env:
+          - name: AUTH_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: AUTH_SERVICE_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: AUTH_SERVICE_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: AUTH_SERVICE_SERVICE_ACCOUNT
+            valueFrom:
+              fieldRef:
+                fieldPath: spec.serviceAccountName
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: auth-service
+  labels:
+    app: auth-service
 spec:
   type: ClusterIP
   selector:

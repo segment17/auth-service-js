@@ -34,7 +34,6 @@ A1_Scenario1_Faulty_Variation1 = {
   }
 }
 
-
 A1_Scenario1_Faulty_Variation2 = {
   admin:  {
     username: "test-admin",
