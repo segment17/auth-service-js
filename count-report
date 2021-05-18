@@ -1,0 +1,206 @@
+$ sh count.sh
+
+index.js:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc index.js
+
+---------- Result ------------
+
+            Physical :  61
+              Source :  47
+             Comment :  3
+ Single-line comment :  3
+       Block comment :  0
+               Mixed :  0
+ Empty block comment :  0
+               Empty :  11
+               To Do :  0
+
+Number of files read :  1
+
+----------------------------
+
+
+GlobalObjects:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc GlobalObjects.js
+
+---------- Result ------------
+
+            Physical :  80
+              Source :  58
+             Comment :  8
+ Single-line comment :  8
+       Block comment :  0
+               Mixed :  2
+ Empty block comment :  0
+               Empty :  16
+               To Do :  1
+
+Number of files read :  1
+
+----------------------------
+
+
+Dockerfile:
+
+       7
+
+Dockerfile comments:
+
+       0
+
+k8s manifests:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc manifest.yaml
+
+---------- Result ------------
+
+            Physical :  109
+              Source :  107
+             Comment :  2
+ Single-line comment :  2
+       Block comment :  0
+               Mixed :  0
+ Empty block comment :  0
+               Empty :  0
+               To Do :  0
+
+Number of files read :  1
+
+----------------------------
+
+
+automations:
+
+       8 ./automate_local_1_nopush.sh
+      17 ./automate_minikube_1.sh
+      18 ./automate_minikube_1_nopush.sh
+       8 ./automate_local_1.sh
+      51 total
+
+Automations comments:
+
+      11
+
+src:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc src/
+
+---------- Result ------------
+
+            Physical :  273
+              Source :  198
+             Comment :  26
+ Single-line comment :  10
+       Block comment :  16
+               Mixed :  0
+ Empty block comment :  0
+               Empty :  49
+               To Do :  3
+
+Number of files read :  7
+
+----------------------------
+
+
+proto:
+
+      41 ./proto/authservice.proto
+
+features:
+
+      26 ./test/features_raw/Unit/Mediator.feature
+      31 ./test/features_raw/Unit/AdminRepository.feature
+      31 ./test/features_raw/Integration/AdminRepository.feature
+      29 ./test/features_raw/E2E.feature
+      52 ./test/features_raw/Component.feature
+     169 total
+
+Feature comments:
+
+      34
+
+step-definitions:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc features/step_definitions
+
+---------- Result ------------
+
+            Physical :  39
+              Source :  32
+             Comment :  0
+ Single-line comment :  0
+       Block comment :  0
+               Mixed :  0
+ Empty block comment :  0
+               Empty :  7
+               To Do :  0
+
+Number of files read :  1
+
+----------------------------
+
+
+scenario-testers:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc test/ScenarioTesters
+
+---------- Result ------------
+
+            Physical :  201
+              Source :  169
+             Comment :  2
+ Single-line comment :  2
+       Block comment :  0
+               Mixed :  0
+ Empty block comment :  0
+               Empty :  30
+               To Do :  0
+
+Number of files read :  4
+
+----------------------------
+
+
+test-data:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc test/TestData.js
+
+---------- Result ------------
+
+            Physical :  162
+              Source :  145
+             Comment :  4
+ Single-line comment :  4
+       Block comment :  0
+               Mixed :  0
+ Empty block comment :  0
+               Empty :  13
+               To Do :  0
+
+Number of files read :  1
+
+----------------------------
+
+
+test-functions:
+
+$ /Users/omergulen/Documents/others/s17/auth-service-js/node_modules/.bin/sloc test/TestFunctions.js
+
+---------- Result ------------
+
+            Physical :  65
+              Source :  53
+             Comment :  2
+ Single-line comment :  2
+       Block comment :  0
+               Mixed :  0
+ Empty block comment :  0
+               Empty :  10
+               To Do :  0
+
+Number of files read :  1
+
+----------------------------
+
