@@ -22,8 +22,6 @@ message ValidateResponse {
   string message = 2;
 }
 
-
-
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse) {};
   rpc Validate(ValidateRequest) returns (ValidateResponse) {};

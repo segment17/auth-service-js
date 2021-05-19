@@ -15,12 +15,7 @@ class Mediator {
   // Endpoints
   async login(username, password) {
     let existingAdmin = await this.adminRepository.getAdminWithUsername(username);
-    
-    if (existingAdmin == null) {
-      return false;
-    }
-
-    return md5(password) == existingAdmin.password_hash;
+    return existingAdmin === null ? false : md5(password) == existingAdmin.password_hash;
   }
 
   createToken(username) {
@@ -32,12 +27,9 @@ class Mediator {
     if (decoded == null) {
       return false;
     }
-    let existingAdmin = await this.adminRepository.getAdminWithUsername(decoded.username);
-    if (existingAdmin == null) {
-      return false;
-    }
 
-    return true;
+    let existingAdmin = await this.adminRepository.getAdminWithUsername(decoded.username);
+    return existingAdmin === null ? false : true
   }
 
   // Mock everything.
