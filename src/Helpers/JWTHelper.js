@@ -6,6 +6,7 @@ function verify(token) {
     jwt.verify(token, K.jwtAppSecret, (error, token) => {
       if (error)
         resolve(null);
+        
       else
         resolve(token);
     });

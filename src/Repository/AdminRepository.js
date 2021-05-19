@@ -12,8 +12,7 @@ class AdminRepository {
 
   async getAdminWithUsername(username) {
     let queryResult = await this.runQueryForGetAdminWithUsername(username);
-    let admin = this.extractAdminFromQueryResult(queryResult);
-    return admin;
+    return this.extractAdminFromQueryResult(queryResult);
   }
 
   async runQueryForGetAdminWithUsername(username) {
@@ -29,10 +28,7 @@ class AdminRepository {
   }
 
   extractAdminFromQueryResult(queryResult) {
-    if (queryResult.length == 0) {
-      return null;
-    }
-    return queryResult[0];
+    return queryResult.length === 0 ? null : queryResult[0];
   }
 
   // Setup

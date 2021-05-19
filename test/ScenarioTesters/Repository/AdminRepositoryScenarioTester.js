@@ -11,16 +11,15 @@ class AdminRepositoryScenarioTester extends DefaultScenarioTester {
   }
 
   async thereIsAnAdminSuchAs(dataSource) {
-    const specifiedAdmin = TestFunctions.extractSpecifiedObjectData(dataSource);
-    globalObjects.adminRepository.setupAddAdmin(specifiedAdmin);
+    globalObjects.adminRepository.setupAddAdmin(TestFunctions.extractSpecifiedObjectData(dataSource));
     globalObjects.done = true;
   }
 
   unitFunctionIsInvokedWithData(unitFunctionName, invocationDataSource) {
     this.unitFunctionName = unitFunctionName;
-    const data = TestFunctions.extractSpecifiedObjectData(invocationDataSource);
+    
     if (unitFunctionName == "getAdminWithUsername") {
-      globalObjects.adminRepository.getAdminWithUsername(data.username).then(d => {
+      globalObjects.adminRepository.getAdminWithUsername(TestFunctions.extractSpecifiedObjectData(invocationDataSource).username).then(d => {
         globalObjects.result = d;
       });
     }

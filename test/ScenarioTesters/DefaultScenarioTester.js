@@ -16,13 +16,14 @@ class DefaultScenarioTester {
   before() {
     globalObjects.reset();
     globalObjects.setScenario(this.scenario);
+
     if (!TestFunctions.isScenarioE2E(this.scenario) && !TestFunctions.isScenarioIntegration(this.scenario)) {
       // If it's not E2E or Integration, it means everything is mocked.
-      
       globalObjects.mock();
       globalObjects.client.Mock({}, (err, res) => {
         globalObjects.done = true;
       });
+
     } else {
       globalObjects.enterIntegratedTestingEnvironment();
       globalObjects.client.EnterIntegratedTestingEnvironment({}, (err, res) => {
@@ -41,16 +42,19 @@ class DefaultScenarioTester {
   endpointIsCalledWithRequestBody(endpoint, requestBodySource) {
     const requestBody = TestFunctions.extractSpecifiedObjectData(requestBodySource);
     this.endpoint = endpoint;
+
     if (endpoint == "Login") {
       globalObjects.client.Login(requestBody, function (err, res) {
         globalObjects.result = res;
       });
     }
+
     else if (endpoint == "Validate") {
       globalObjects.client.Validate(requestBody, function (err, res) {
         globalObjects.result = res;
       });
     }
+
     else {
       assert(false);
     }
@@ -59,15 +63,17 @@ class DefaultScenarioTester {
   async responseIsAs(expectedResponseDataSource) {
     const expectedResponse = TestFunctions.extractSpecifiedObjectData(expectedResponseDataSource);
     await TestFunctions.waitUntilResult();
-    const response = globalObjects.result;
-    console.log(response);
-
+    console.log(globalObjects.result);
     assert.strictEqual(response.code, expectedResponse.code);
     assert.strictEqual(response.message, expectedResponse.message);
+
     if (this.endpoint == "Login") {
+
       if (TestFunctions.isScenarioFaulty(this.scenario)) {
         assert.strictEqual(response.token, expectedResponse.token);
-      } else {
+      } 
+      
+      else {
         jwt.verify(response.token, K.jwtAppSecret, function (err, decoded) {
           assert(err == null);
           assert.strictEqual(decoded.username, expectedResponse.token_decoded.username);

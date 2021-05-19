@@ -9,9 +9,8 @@ class MockAdminRepository extends AdminRepository {
   
   async runQueryForGetAdminWithUsername(username) {
     for (let i = 0; i < this.admins.length; i++) {
-      const element = this.admins[i];
-      if (element.username == username) {
-        return [element];
+        if (this.admins[i].username == username) {
+        return [this.admins[i]];
       }
     }
     return [];

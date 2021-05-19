@@ -8,10 +8,8 @@ class Controller {
 
   // Endpoint guards: guard[endpoint name]
   async guardLogin(request) {
-    //TODO Validation
-
     let isSuccessful = await this.mediator.login(request.username, request.password);
-    
+
     if (isSuccessful) {
       let token = this.mediator.createToken(request.username);
       return {
@@ -19,7 +17,9 @@ class Controller {
         message: 'success',
         token: token
       }
-    } else {
+    } 
+    
+    else {
       return {
         code: 403,
         message: 'Incorrect login!',
@@ -38,7 +38,9 @@ class Controller {
         code: 200,
         message: 'success'
       }
-    } else {
+    } 
+    
+    else {
       return {
         code: 403,
         message: 'forbidden'
@@ -55,8 +57,6 @@ class Controller {
   enterIntegratedTestingEnvironment() {
     this.mediator.enterIntegratedTestingEnvironment();
   }
-
-  
 
 }
 
