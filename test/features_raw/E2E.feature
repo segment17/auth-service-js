@@ -1,9 +1,6 @@
 @E2E
 Feature: Auth Service E2E Features
 
-  Background: Prepare Services
-    Given "AuthService" is running
-
   @A1 @A1_Scenario1
   Scenario Outline: Give token upon login with username and password
     #Set up mock repository or real database
