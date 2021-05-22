@@ -6,9 +6,9 @@ const MockAdminRepository = require('./src/Repository/Mock/MockAdminRepository')
 // GRPC SETUP
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
-const PROTO_PATH = __dirname + '/proto/authservice.proto';
+const PROTO_PATH = __dirname + '/proto/ubc.proto';
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, { keepCase: true, longs: String, enums: String, defaults: true, oneofs: true });
-const authservice_package = grpc.loadPackageDefinition(packageDefinition).authservice_package;
+const ubc_package = grpc.loadPackageDefinition(packageDefinition).ubc_package;
 // GRPC SETUP
 
 
@@ -26,9 +26,9 @@ class GlobalObjects {
 
     // Connect to Kubernetes if possible
     if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
-      this.client = new authservice_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
+      this.client = new ubc_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
     } else {
-      this.client = new authservice_package.AuthService("0.0.0.0:50001", grpc.credentials.createInsecure());
+      this.client = new ubc_package.AuthService("0.0.0.0:50001", grpc.credentials.createInsecure());
     }
   }
 
@@ -69,9 +69,9 @@ class GlobalObjects {
 
     // Connect to Kubernetes if possible
     if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
-      this.client = new authservice_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
+      this.client = new ubc_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
     } else {
-      this.client = new authservice_package.AuthService("0.0.0.0:50001", grpc.credentials.createInsecure());
+      this.client = new ubc_package.AuthService("0.0.0.0:50001", grpc.credentials.createInsecure());
     }
   }
 
