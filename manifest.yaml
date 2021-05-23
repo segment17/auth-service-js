@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: auth-service
-        imagePullPolicy: Never
-        image: segment17hub/authservice
+        imagePullPolicy: IfNotPresent
+        image: segment17hub/authservice:0.1
         ports:
         - containerPort: 50051
         env:
@@ -69,7 +69,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:5.7
+        image: mysql:5.6
         ports:
         - containerPort: 3306
         env:
@@ -81,7 +81,7 @@ spec:
       volumes:
         - name: auth-mysql-persistent-storage
           persistentVolumeClaim:
-            claimName: auth-mysql-claim
+            claimName: auth-mysql-volume-claim
 ---
 apiVersion: v1
 kind: Service
@@ -98,7 +98,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: auth-mysql-claim
+  name: auth-mysql-volume-claim
 spec:
   storageClassName: standard
   accessModes:
@@ -106,4 +106,17 @@ spec:
   resources:
     requests:
       storage: 1Gi
-# MYSQL
+---
+apiVersion: getambassador.io/v2
+kind: Mapping 
+metadata:
+  name: auth-service
+spec:
+  grpc: True
+  prefix: /ubc_package.AuthService/
+  rewrite: /ubc_package.AuthService/
+  service: auth-service
+  timeout_ms: 4000
+  idle_timeout_ms: 500000
+  connect_timeout_ms: 2000
+---
