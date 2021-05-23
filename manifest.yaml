@@ -17,7 +17,7 @@ spec:
       containers:
       - name: auth-service
         imagePullPolicy: IfNotPresent
-        image: segment17hub/authservice:0.1
+        image: segment17hub/authservice:0.1.1
         ports:
         - containerPort: 50051
         env:
@@ -115,7 +115,7 @@ spec:
   grpc: True
   prefix: /ubc_package.AuthService/
   rewrite: /ubc_package.AuthService/
-  service: auth-service
+  service: auth-service:50051
   timeout_ms: 4000
   idle_timeout_ms: 500000
   connect_timeout_ms: 2000
