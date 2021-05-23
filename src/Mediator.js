@@ -20,7 +20,8 @@ class Mediator {
       return false;
     }
 
-    return md5(password) == existingAdmin.password_hash;
+    const password_hash = md5(password);
+    return password_hash == existingAdmin.password_hash;
   }
 
   createToken(username) {

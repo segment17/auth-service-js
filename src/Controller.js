@@ -9,11 +9,12 @@ class Controller {
   // Endpoint guards: guard[endpoint name]
   async guardLogin(request) {
     //TODO Validation
-
-    let isSuccessful = await this.mediator.login(request.username, request.password);
+    const { username, password } = request;
+    console.log(`Login request received for user: ${username} and password [${'*'.repeat(password ? password.length : 8)}].`);
+    let isSuccessful = await this.mediator.login(username, password);
     
     if (isSuccessful) {
-      let token = this.mediator.createToken(request.username);
+      let token = this.mediator.createToken(username);
       return {
         code: 200,
         message: 'success',
@@ -31,7 +32,9 @@ class Controller {
 
   async guardValidate(request) {
     // TODO data validation
-    let isAuthorized = await this.mediator.validate(request.token);
+    const { token } = request;
+    console.log(`Validate request received for token: [${'*'.repeat(token ? token.length : 32)}]`);
+    let isAuthorized = await this.mediator.validate(token);
 
     if (isAuthorized) {
       return {

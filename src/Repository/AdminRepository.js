@@ -20,9 +20,10 @@ class AdminRepository {
     return new Promise((resolve, reject) => {
       connection.query(`SELECT * FROM ${this.tableName} WHERE username = '${username}';`, (error, result) => {
         if (error) {
-          console.log(error);
+          console.log('DB Error occured: ', error);
           resolve(null);
         }
+        console.log('Successful fetch from DB.');
         resolve(result);
       });
     });
@@ -40,9 +41,10 @@ class AdminRepository {
     return new Promise((resolve, reject) => {
       connection.query(`INSERT INTO test_admins (username, password_hash) VALUES ('${admin.username}', '${admin.password_hash}');`, (error, result) => {
         if (error) {
-          console.log(error);
+          console.log('DB Error occured: ', error);
           resolve(null);
         }
+        console.log('Successful setup insert to DB.');
         resolve(result);
       });
     });
@@ -53,9 +55,10 @@ class AdminRepository {
     return new Promise((resolve, reject) => {
       connection.query(`DELETE FROM test_admins;`, (error, result) => {
         if (error) {
-          console.log(error);
+          console.log('DB Error occured: ', error);
           resolve(null);
         }
+        console.log('Successful cleanup from DB.');
         resolve(result);
       });
     });
