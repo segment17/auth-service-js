@@ -47,7 +47,7 @@ function main() {
     SetupAddAdmin: bindSetupAddAdmin
   });
 
-  server.bind(process.env.AUTH_SERVICE_ADDR || "localhost:50051", grpc.ServerCredentials.createInsecure());
+  server.bind("0.0.0.0:50051", grpc.ServerCredentials.createInsecure());
   server.start();
 }
 
