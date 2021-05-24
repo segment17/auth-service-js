@@ -247,7 +247,7 @@ class GlobalObjects {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
 <span class="cstat-no" title="statement not covered" >      this.client = new authservice_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());</span>
     } else {
-      this.client = new authservice_package.AuthService("0.0.0.0:50001", grpc.credentials.createInsecure());
+      this.client = new authservice_package.AuthService("0.0.0.0:50051", grpc.credentials.createInsecure());
     }
   }
 &nbsp;
@@ -290,7 +290,7 @@ class GlobalObjects {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
 <span class="cstat-no" title="statement not covered" >      this.client = new authservice_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());</span>
     } else {
-      this.client = new authservice_package.AuthService("0.0.0.0:50001", grpc.credentials.createInsecure());
+      this.client = new authservice_package.AuthService("0.0.0.0:50051", grpc.credentials.createInsecure());
     }
   }
 &nbsp;
