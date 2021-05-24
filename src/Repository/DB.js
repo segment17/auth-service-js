@@ -21,7 +21,7 @@ INSERT INTO test_admins (username, password_hash) values ('test-admin', '13019e4
 */
 
 const connectionSetup = {
-  host: process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST != undefined ? process.env.AUTH_MYSQL_SERVICE_SERVICE_HOST : "localhost",
+  host: process.env.AUTH_MYSQL_SERVICE_ADDR || "localhost",
   user: "root",
   password: "root",
   database: "authservice"
