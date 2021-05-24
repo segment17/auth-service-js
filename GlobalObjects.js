@@ -23,13 +23,7 @@ class GlobalObjects {
     this.mediator = new Mediator();
     this.adminRepository = new AdminRepository();
 
-
-    // Connect to Kubernetes if possible
-    if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
-      this.client = new ubc_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
-    } else {
-      this.client = new ubc_package.AuthService("0.0.0.0:50051", grpc.credentials.createInsecure());
-    }
+    this.client = new ubc_package.AuthService(process.env.AUTH_SERVICE_ADDR || "0.0.0.0:50051", grpc.credentials.createInsecure());
   }
 
   // Mock everything...
@@ -67,12 +61,7 @@ class GlobalObjects {
     this.mediator = new Mediator();
     this.adminRepository = new AdminRepository();
 
-    // Connect to Kubernetes if possible
-    if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
-      this.client = new ubc_package.AuthService("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.credentials.createInsecure());
-    } else {
-      this.client = new ubc_package.AuthService("0.0.0.0:50051", grpc.credentials.createInsecure());
-    }
+    this.client = new ubc_package.AuthService(process.env.AUTH_SERVICE_ADDR || "0.0.0.0:50051", grpc.credentials.createInsecure());
   }
 
 }

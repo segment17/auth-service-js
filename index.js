@@ -47,14 +47,8 @@ function main() {
     SetupAddAdmin: bindSetupAddAdmin
   });
 
-  if (process.env.AUTH_SERVICE_SERVICE_PORT != undefined) {
-    server.bind("0.0.0.0" + ":" + process.env.AUTH_SERVICE_SERVICE_PORT, grpc.ServerCredentials.createInsecure());
-  } else {
-    server.bind("localhost:50051", grpc.ServerCredentials.createInsecure());
-  }
+  server.bind(process.env.AUTH_SERVICE_ADDR || "localhost:50051", grpc.ServerCredentials.createInsecure());
   server.start();
-
-
 }
 
 main();
