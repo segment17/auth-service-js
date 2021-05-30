@@ -5,7 +5,7 @@ metadata:
   labels:
     app: auth-service
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: auth-service
@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: auth-service
-        imagePullPolicy: IfNotPresent
-        image: segment17hub/authservice:0.1.6
+        imagePullPolicy: Always
+        image: segment17hub/authservice:0.1.7rc3
         ports:
         - containerPort: 50051
         env:
@@ -47,6 +47,7 @@ kind: Deployment
 metadata:
   name: auth-mysql-deployment
 spec:
+  # replicas: 3
   selector:
     matchLabels:
       app: mysql
