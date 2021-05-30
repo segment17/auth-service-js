@@ -31,7 +31,7 @@ var connection = mysql.createConnection(connectionSetup);
 
 connection.connect(function (err) {
   if (err) {
-    console.log(err);
+    console.log('err:', err);
   } else {
     console.log("Connected!");
   }
