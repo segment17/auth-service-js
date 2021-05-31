@@ -26,14 +26,11 @@ const connectionSetup = {
   password: "root",
   database: "authservice"
 };
-console.log(connectionSetup);
 var connection = mysql.createConnection(connectionSetup);
 
 connection.connect(function (err) {
-  if (err) {
-    console.log('err:', err);
-  } else {
-    console.log("Connected to Database!");
+  if (!err) {
+     console.log("Connected to Database!");
   }
 });
 

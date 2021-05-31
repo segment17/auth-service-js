@@ -2,6 +2,10 @@ const GlobalObjects = require('./GlobalObjects');
 var globalObjects = new GlobalObjects();
 module.exports = globalObjects;
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // GRPC SETUP
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
@@ -21,12 +25,20 @@ async function bindEnterIntegratedTestingEnvironment(call, callback) {
 }
 
 async function bindLogin(call, callback) {
+  await sleep(300);
+  console.log('\n⚪Login⚪\t:: ', JSON.stringify(call.request));
   let r = await globalObjects.controller.guardLogin(call.request);
+  await sleep(300);
+  console.log('🟢Login🟢\t:: ', JSON.stringify(r));
   callback(null, r);
 }
 
 async function bindValidate(call, callback) {
+  await sleep(300);
+  console.log('\n⚪Validate⚪\t:: ', JSON.stringify(call.request));
   let r = await globalObjects.controller.guardValidate(call.request);
+  await sleep(300);
+  console.log('🟢Validate🟢\t:: ', JSON.stringify(r));
   callback(null, r);
 }
 

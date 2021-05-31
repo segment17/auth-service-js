@@ -51,7 +51,6 @@ class AdminRepository {
     return new Promise((resolve, reject) => {
       connection.query(`DELETE FROM test_admins;`, (error, result) => {
         if (error) {
-          console.log('cleanUp DB Error occured: ', error);
           resolve(null);
         }
         resolve(result);
