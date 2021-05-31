@@ -33,7 +33,7 @@ connection.connect(function (err) {
   if (err) {
     console.log('err:', err);
   } else {
-    console.log("Connected!");
+    console.log("Connected to Database!");
   }
 });
 

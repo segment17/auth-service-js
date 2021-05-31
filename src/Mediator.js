@@ -14,8 +14,6 @@ class Mediator {
 
   // Endpoints
   async login(username, password) {
-    console.log('password: ', password);
-    console.log('username: ', username);
     let existingAdmin = await this.adminRepository.getAdminWithUsername(username);
     
     if (existingAdmin == null) {
@@ -27,19 +25,15 @@ class Mediator {
   }
 
   createToken(username) {
-    console.log('username: ', username);
     return jwt.sign({ username: username }, K.jwtAppSecret);
   }
 
   async validate(token) {
-    console.log('token: ', token);
     let decoded = await JWTHelper.verify(token);
-    console.log('decoded: ', decoded);
     if (decoded == null) {
       return false;
     }
     let existingAdmin = await this.adminRepository.getAdminWithUsername(decoded.username);
-    console.log('existingAdmin: ', existingAdmin);
     if (existingAdmin == null) {
       return false;
     }

@@ -24,7 +24,6 @@ class GlobalObjects {
     this.adminRepository = new AdminRepository();
 
     this.client = new ubc_package.AuthService(process.env.AUTH_SERVICE_ADDR || "0.0.0.0:50051", grpc.credentials.createInsecure());
-    console.log('process.env.AUTH_SERVICE_ADDR: ', process.env.AUTH_SERVICE_ADDR);
   }
 
   // Mock everything...
