@@ -26,19 +26,19 @@ async function bindEnterIntegratedTestingEnvironment(call, callback) {
 
 async function bindLogin(call, callback) {
   await sleep(50);
-  console.log('\n⚪Login⚪\t:: ', JSON.stringify(call.request));
+  console.log('\n⚪   Login:: ', JSON.stringify(call.request));
   let r = await globalObjects.controller.guardLogin(call.request);
   await sleep(50);
-  console.log('🟢Login🟢\t:: ', JSON.stringify(r));
+  console.log('🟢  Login:: ', JSON.stringify(r));
   callback(null, r);
 }
 
 async function bindValidate(call, callback) {
   await sleep(50);
-  console.log('\n⚪Validate⚪\t:: ', JSON.stringify(call.request));
+  console.log('\n⚪   Validate:: ', JSON.stringify(call.request));
   let r = await globalObjects.controller.guardValidate(call.request);
   await sleep(50);
-  console.log('🟢Validate🟢\t:: ', JSON.stringify(r));
+  console.log('🟢  Validate:: ', JSON.stringify(r));
   callback(null, r);
 }
 
