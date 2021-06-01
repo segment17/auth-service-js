@@ -17,7 +17,7 @@ spec:
       containers:
       - name: auth-service
         imagePullPolicy: Always
-        image: segment17hub/authservice:0.1.7rc3
+        image: segment17hub/authservice:0.1.7
         ports:
         - containerPort: 50051
         env:
