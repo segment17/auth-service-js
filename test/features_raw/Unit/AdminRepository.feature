@@ -2,7 +2,7 @@
 Feature: Admin Repository Unit Feature
 
   #SUCCESS SCENARIOS
-  @Unit_Repository_Scenario1
+  @Unit_Repository_Scenario1 @A1
   Scenario Outline: Get admin from repository.
     #Set up mock Repository or real user service -> Mock if @Unit, real if @Integration
     Given there is an admin such as "<admin>"
@@ -16,7 +16,7 @@ Feature: Admin Repository Unit Feature
       | Unit_AdminRepository_Scenario1.admin | getAdminWithUsername | Unit_AdminRepository_Scenario1.invocation_data | Unit_AdminRepository_Scenario1.expected_data |
 
   #SUCCESS SCENARIOS
-  @Unit_Repository_Scenario1_Faulty
+  @Unit_Repository_Scenario1_Faulty @A1
   Scenario Outline: Fail to get non-existent admin from repository.
     #Set up mock Repository or real user service -> Mock if @Unit, real if @Integration
     Given there is an admin such as "<admin>"
